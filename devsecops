@@ -23,7 +23,7 @@ pipeline {
           
       stage ( ' SCA ' ) { 
         steps { 
-            sh 'rm owasp*'
+            sh 'rm dependency* || true'
             sh ' wget https://raw.githubusercontent.com/certcube-range/devsecops/main/dependency.sh'
             sh ' chmod +x dependency.sh'
             sh 'bash depedency.sh'
