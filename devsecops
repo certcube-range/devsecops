@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  tools {
+    maven 'Maven'
+    }
+    stages {
+    stage ('initalize') {
+      steps {
+        sh '''
+                echo  ""PATH = ${PATH}"
+                echo  "M2_home = ${M2_HOME}"
+                
+        }
+      }
+      
+     stage ('Build') {
+        sh 'mvn clean package'
+        
+       }
+       
+  }
+  
+}
