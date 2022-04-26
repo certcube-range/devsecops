@@ -55,7 +55,7 @@ pipeline {
      stage('DAST') {
                 steps {
                   sshagent(['zap']) {
-                      sh 'sshpass -f /home/azureuser/shpass scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null azureuser@20.185.21.86 "sudo docker -t owasp/zap2docker-stable zap-baseline.py -t "http://20.231.67.211:8080/webapp/" || true ' 
+                      sh 'sshpass -f /home/azureuser/shpass scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null azureuser@20.185.21.86 "sudo docker -t owasp/zap2docker-stable zap-baseline.py -t http://20.231.67.211:8080/webapp/ " || true ' 
                       }       
                  }
               }
