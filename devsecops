@@ -4,12 +4,12 @@ pipeline {
     maven 'maven'
     }
     stages {
-    stage ('initalize') {
+    stage ('initialize') {
       steps {
         sh '''
-                echo  ""PATH = ${PATH}"
+                echo  "PATH = ${PATH}"
                 echo  "M2_home = ${M2_HOME}"
-                
+           '''     
         }
       }
       
