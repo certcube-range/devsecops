@@ -22,7 +22,7 @@ pipeline {
      stage ('Deployment') {
         steps {
             sshagent(['tomcat']) {
-                sh 'scp -o StrictHostKeyChecking=no target/*.war -i /home/azureuser/priv_key.pem azureuser@20.231.67.211:/tomcat/apache-tomcat-9.0.62/webapps/webapp.war'
+                sh 'scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null target/*.war -i /home/azureuser/priv_key.pem azureuser@20.231.67.211:/tomcat/apache-tomcat-9.0.62/webapps/webapp.war'
                 }
                 
             }
