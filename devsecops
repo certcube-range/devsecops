@@ -27,6 +27,7 @@ pipeline {
             sh ' wget https://raw.githubusercontent.com/certcube-range/devsecops/main/dependency.sh'
             sh ' chmod +x dependency.sh'
             sh 'bash depedency.sh'
+            sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
             }
           }
      stage ('Build') {
