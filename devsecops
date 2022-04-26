@@ -12,7 +12,15 @@ pipeline {
            '''     
         }
       }
-      
+     
+     stage ( 'git secrets') {
+        steps {
+            sh 'rm output_truffle || true'
+            sh 'docker run gesellix/trufflehog --json https://github.com/certcube-range/devsecops.git > output_truffle '
+            sh 'cat output_truffle'
+            }
+          }
+          
      stage ('Build') {
         steps {
         sh 'mvn clean package'
